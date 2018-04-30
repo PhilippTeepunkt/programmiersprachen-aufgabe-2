@@ -1,14 +1,34 @@
+<<<<<<< HEAD
+=======
+# Prerequisites
+*.d
+
+>>>>>>> a1134534b2c050eed4d3df62e07df719ddc3da81
 # Compiled Object files
 *.slo
 *.lo
 *.o
 *.obj
 
+<<<<<<< HEAD
+=======
+# Precompiled Headers
+*.gch
+*.pch
+
+>>>>>>> a1134534b2c050eed4d3df62e07df719ddc3da81
 # Compiled Dynamic libraries
 *.so
 *.dylib
 *.dll
 
+<<<<<<< HEAD
+=======
+# Fortran module files
+*.mod
+*.smod
+
+>>>>>>> a1134534b2c050eed4d3df62e07df719ddc3da81
 # Compiled Static libraries
 *.lai
 *.la
@@ -19,6 +39,9 @@
 *.exe
 *.out
 *.app
+<<<<<<< HEAD
 
 build
 cmake_out
+=======
+>>>>>>> a1134534b2c050eed4d3df62e07df719ddc3da81
