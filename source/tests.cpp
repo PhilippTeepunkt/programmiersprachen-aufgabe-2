@@ -58,6 +58,12 @@ TEST_CASE ("test_vec2_/=operator","[vec2_operator]")
   vec/=s;
   REQUIRE(vec.x==1.5f);
   REQUIRE(vec.y==1.0f);
+  
+  float z = 0.0f;
+  Vec2 vec_2{3.0f,2.0f};
+  vec_2/=z;
+  REQUIRE(vec_2.x==3.0f);
+  REQUIRE(vec_2.y==2.0f);
 }
 
 //aufgabe 2.4
