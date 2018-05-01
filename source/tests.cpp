@@ -70,20 +70,42 @@ TEST_CASE ("test_vec2_/=operator","[vec2_operator]")
 
 TEST_CASE ("test_vec2_+operator","[vec2_operator]")
 {
-
+  Vec2 vec{3.0f,2.0f};
+  Vec2 vecT{2.0f,5.0f};
+  Vec2 sum = vec+vecT;
+  REQUIRE(sum.x==5.0f);
+  REQUIRE(sum.y==7.0f);
 }
 
 TEST_CASE ("test_vec2_-operator","[vec2_operator]")
 {
-  
+  Vec2 vec{3.0f,2.0f};
+  Vec2 vecT{2.0f,5.0f};
+  Vec2 sub = vec-vecT;
+  REQUIRE(sub.x==1.0f);
+  REQUIRE(sub.y==-3.0f);
 }
 
 TEST_CASE ("test_vec2_*operator","[vec2_operator]")
 {
-  
+  Vec2 vec{3.0f,2.0f};
+  float s = 2.0f;
+  Vec2 prod =vec*s;
+  REQUIRE(prod.x==6.0f);
 }
 
 TEST_CASE ("test_vec2_/operator","[vec2_operator]")
 {
-  
+  Vec2 vec{3.0f,2.0f};
+  float s = 2.0f;
+  Vec2 div = vec/s;
+  REQUIRE(div.x == 1.5f);
+  REQUIRE(div.y == 1.0f);
+
+  Vec2 vecT{3.0f,2.0f};
+  float n = 0.0f;
+  Vec2 divi = vecT/n;
+  REQUIRE(divi.x == 3.0f);
+  REQUIRE(divi.y == 2.0f);
 }
+
