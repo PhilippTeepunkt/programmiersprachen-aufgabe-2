@@ -5,6 +5,7 @@ struct Vec2
 {
     public:
         Vec2();
+        Vec2(Vec2 const& v);
         Vec2(float,float);
 
         Vec2& operator+= (Vec2 const& v);
