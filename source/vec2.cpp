@@ -2,6 +2,7 @@
 #define VEC2_CPP
 
 #include "vec2.hpp"
+#include "mat2.hpp"
 #include <iostream>
 
 //Aufgabe 2.2
@@ -43,7 +44,7 @@ Vec2& Vec2::operator *=(float s){
 
 Vec2& Vec2::operator /=(float s){
     if(s==0.0f){
-        std::cout<<"Division through zero!! Nothing calculated!";
+        std::cout<<"Division through zero!! Nothing calculated! ";
         return *this;
     }
     else{
@@ -97,7 +98,6 @@ Vec2 operator*(float s,Vec2 const& v){
     calc.y = s * v.y;
     return calc;
 }
-
 
 #endif
 
