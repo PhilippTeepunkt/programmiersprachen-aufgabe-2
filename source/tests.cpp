@@ -127,6 +127,11 @@ TEST_CASE ("test_mat2_*=operator","[mat2_operator]")
   REQUIRE(m1.s2.y == -4.0f);
 }
 
+TEST_CASE ("test_mat2_*=float_operator","[mat2_operator]")
+{
+
+}
+
 TEST_CASE ("test_mat2_*operator","[mat2_operator]")
 {
   Vec2 v_1{3.0f,2.0f};
@@ -143,5 +148,104 @@ TEST_CASE ("test_mat2_*operator","[mat2_operator]")
   REQUIRE(erg.s1.y == 24.0f);
   REQUIRE(erg.s2.x == 5.0f);
   REQUIRE(erg.s2.y == -4.0f);
+}
+
+//aufgabe 2.6
+TEST_CASE ("test_mat2_*vec_operator","[mat2_operator]")
+{
+  Vec2 v_1{3.0f,2.0f};
+  Vec2 v_2{2.0f,5.0f};
+  Vec2 v_3{3.0f,-2.0f};
+
+  Mat2 m1{v_1,v_2};
+
+  Vec2 erg;
+  erg = m1 * v_3;
+  REQUIRE(erg.x == 5.0f);
+  REQUIRE(erg.y == -4.0f);
+
+  erg = v_3 * m1;
+  REQUIRE(erg.x == 5.0f);
+  REQUIRE(erg.y == -4.0f);
+}
+
+TEST_CASE ("test_mat2_*float_operator")
+{
+  Vec2 v_1{3.0f,2.0f};
+  Vec2 v_2{2.0f,5.0f};
+
+  Mat2 m1{v_1,v_2};
+
+  Mat2 erg = m1*2;
+  REQUIRE(erg.s1.x == 6.0f);
+  REQUIRE(erg.s1.y == 4.0f);
+  REQUIRE(erg.s2.x == 4.0f);
+  REQUIRE(erg.s2.y == 10.0f);
+
+  erg = 2 * m1;
+  REQUIRE(erg.s1.x == 6.0f);
+  REQUIRE(erg.s1.y == 4.0f);
+  REQUIRE(erg.s2.x == 4.0f);
+  REQUIRE(erg.s2.y == 10.0f);
+}
+
+TEST_CASE ("test_mat2_determinante","[mat2_det]")
+{
+  Vec2 v_1{3.0f,-2.0f};
+  Vec2 v_2{2.0f,-5.0f};
+
+  Mat2 m1{v_1,v_2};
+
+  REQUIRE(m1.det() == -11.0f);
+}
+
+TEST_CASE ("test_mat2_inverse","[mat2_inv]")
+{
+  Vec2 v_1{3.0f,-2.0f};
+  Vec2 v_2{2.0f,-5.0f};
+  Vec2 v_3{0.45454547f,-0.181818187f};
+  Vec2 v_4{0.181818187f,-0.272727281f};
+
+  Mat2 m1{v_1,v_2};
+
+  Mat2 erg{v_3,v_4};
+  Mat2 calc = inverse(m1);
+  REQUIRE(erg.s1.x==Approx(calc.s1.x));
+  REQUIRE(erg.s1.y==Approx(calc.s1.y));
+  REQUIRE(erg.s2.x==Approx(calc.s2.x));
+  REQUIRE(erg.s2.y==Approx(calc.s2.y));
+
+  Vec2 v_5{2.0f,2.0f};
+  Vec2 v_6{2.0f,2.0f};
+
+  Mat2 m2{v_5,v_6};
+  calc = inverse(m2);
+  REQUIRE(calc.s1.x == m2.s1.x);
+  REQUIRE(calc.s1.y == m2.s1.y);
+  REQUIRE(calc.s2.x == m2.s2.x);
+  REQUIRE(calc.s2.y == m2.s2.y);
+}
+
+TEST_CASE ("test_mat2_transpose","[mat2_trans]")
+{
+  Vec2 v_1{3.0f,-2.0f};
+  Vec2 v_2{2.0f,-5.0f};
+  Mat2 m1{v_1,v_2};
+
+  Mat2 erg{Vec2{3.0f,2.0f},Vec2{-2.0f,-5.0f}};
+  Mat2 calc = transpose(m1);
+  REQUIRE(calc.s1.x == erg.s1.x);
+  REQUIRE(calc.s2.x == erg.s2.x);
+  REQUIRE(calc.s1.y == erg.s1.y);
+  REQUIRE(calc.s2.y == erg.s2.y);
+}
+
+TEST_CASE ("test_mat2_makeRotate","[mat2_rot]")
+{
+  Mat2 calc = make_rotate_mat2(30.0f);
+  REQUIRE(calc.s1.x == Approx(cos(30.0f)));
+  REQUIRE(calc.s1.y == Approx(sin(30.0f)));
+  REQUIRE(calc.s2.x == Approx(-sin(30.0f)));
+  REQUIRE(calc.s2.y == Approx(cos(30.0f)));
 }
 
