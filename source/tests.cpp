@@ -254,3 +254,97 @@ TEST_CASE ("test_mat2_functions","[mat2]")
   }
 }
 
+TEST_CASE("test_color_general","[color]")
+{
+	SECTION("test_constructors"){
+
+		Color bl{0.0f};;
+		REQUIRE(bl.r_ == Approx(0.0f));
+		REQUIRE(bl.g_ == Approx(0.0f));
+		REQUIRE(bl.b_ == Approx(0.0f));
+
+		Color re{1.0f,0.0f,0.0f};
+		REQUIRE(re.r_ == Approx(1.0f));
+		REQUIRE(re.g_ == Approx(0.0f));
+		REQUIRE(re.b_ == Approx(0.0f));
+
+		Color none{3.0f};
+		REQUIRE(none.r_ == Approx(0.0f));
+		REQUIRE(none.g_ == Approx(0.0f));
+		REQUIRE(none.b_ == Approx(0.0f));
+	}
+}
+
+TEST_CASE("test_circle_general","[circle]") {
+	Circle a;
+	Circle b{2.0f};
+  Circle c{2.0f,Vec2{1.0f,1.0f}};
+  Circle d{2.0f,Vec2{2.0f,2.0f},Color{0.0f,1.0f,0.0f}};
+
+	SECTION("test_constructors") {
+		REQUIRE(a.get_center().x == Approx(0.0f));
+		REQUIRE(a.get_center().y == Approx(0.0f));
+		REQUIRE(a.get_radius() == Approx(1.0f));
+    REQUIRE(a.get_color().r_ == Approx(0.0f));
+
+		REQUIRE(b.get_center().x == Approx(0.0f));
+		REQUIRE(b.get_center().y == Approx(0.0f));
+		REQUIRE(b.get_radius() == Approx(2.0f));
+    REQUIRE(b.get_color().r_ == Approx(0.0f));
+
+    REQUIRE(c.get_center().x == Approx(1.0f));
+		REQUIRE(c.get_center().y == Approx(1.0f));
+		REQUIRE(c.get_radius() == Approx(2.0f));
+    REQUIRE(c.get_color().g_ == Approx(0.0f));
+
+    REQUIRE(d.get_center().x == Approx(2.0f));
+		REQUIRE(d.get_center().y == Approx(2.0f));
+		REQUIRE(d.get_radius() == Approx(2.0f));
+    REQUIRE(d.get_color().g_ == Approx(1.0f));
+
+	}
+
+	SECTION("test_methods") {
+
+		REQUIRE(a.circumference() == Approx(6.2831853072));
+		REQUIRE(b.circumference() == Approx(12.5663706144));
+	}
+}
+
+/*
+TEST_CASE("test_rectangle_general","[rectangle]")
+{
+	Rectangle a{};
+	Rectangle b{};
+  Rectangle c{};
+  Rectangle d{};
+
+	SECTION("test_constructors") {
+	
+		REQUIRE(a.min().x == Approx(0.0f));
+		REQUIRE(a.min().y == Approx(0.0f));
+		REQUIRE(a.max().x == Approx(0.0f));
+		REQUIRE(a.max().y == Approx(0.0f));
+
+		REQUIRE(b.min().x == Approx());
+		REQUIRE(b.min().y == Approx());
+		REQUIRE(b.max().x == Approx());
+		REQUIRE(b.max().y == Approx());
+
+    REQUIRE(b.min().x == Approx());
+		REQUIRE(b.min().y == Approx());
+		REQUIRE(b.max().x == Approx());
+		REQUIRE(b.max().y == Approx());
+
+    REQUIRE(b.min().x == Approx());
+		REQUIRE(b.min().y == Approx());
+		REQUIRE(b.max().x == Approx());
+		REQUIRE(b.max().y == Approx());
+	}
+
+	SECTION("test_methods") {
+		REQUIRE(a.circumference() == Approx(0.0f));
+		REQUIRE(b.circumference() == Approx(4.0f));
+	}
+  
+}*/
