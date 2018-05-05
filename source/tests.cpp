@@ -311,40 +311,43 @@ TEST_CASE("test_circle_general","[circle]") {
 	}
 }
 
-/*
 TEST_CASE("test_rectangle_general","[rectangle]")
 {
-	Rectangle a{};
-	Rectangle b{};
-  Rectangle c{};
-  Rectangle d{};
+	Rectangle a;
+	Rectangle b{Color{0.0f,1.0f,0.0f}};
+  Rectangle c{Vec2{1.0f,1.0f},Vec2{2.0f,2.0f}};
+  Rectangle d{Vec2{2.0f,2.0f},Vec2{3.0f,3.0f},Color{0.0f,1.0f,0.0f}};
 
 	SECTION("test_constructors") {
 	
-		REQUIRE(a.min().x == Approx(0.0f));
-		REQUIRE(a.min().y == Approx(0.0f));
-		REQUIRE(a.max().x == Approx(0.0f));
-		REQUIRE(a.max().y == Approx(0.0f));
+		REQUIRE(a.get_min().x == Approx(0.0f));
+		REQUIRE(a.get_min().y == Approx(0.0f));
+		REQUIRE(a.get_max().x == Approx(1.0f));
+		REQUIRE(a.get_max().y == Approx(1.0f));
+    REQUIRE(a.get_color().g_ == Approx(0.0f));
 
-		REQUIRE(b.min().x == Approx());
-		REQUIRE(b.min().y == Approx());
-		REQUIRE(b.max().x == Approx());
-		REQUIRE(b.max().y == Approx());
+		REQUIRE(b.get_min().x == Approx(0.0f));
+		REQUIRE(b.get_min().y == Approx(0.0f));
+		REQUIRE(b.get_max().x == Approx(1.0f));
+		REQUIRE(b.get_max().y == Approx(1.0f));
+    REQUIRE(b.get_color().g_ == Approx(1.0f));
 
-    REQUIRE(b.min().x == Approx());
-		REQUIRE(b.min().y == Approx());
-		REQUIRE(b.max().x == Approx());
-		REQUIRE(b.max().y == Approx());
 
-    REQUIRE(b.min().x == Approx());
-		REQUIRE(b.min().y == Approx());
-		REQUIRE(b.max().x == Approx());
-		REQUIRE(b.max().y == Approx());
+    REQUIRE(c.get_min().x == Approx(1.0f));
+		REQUIRE(c.get_min().y == Approx(1.0f));
+		REQUIRE(c.get_max().x == Approx(2.0));
+		REQUIRE(c.get_max().y == Approx(2.0));
+    REQUIRE(c.get_color().g_ == Approx(0.0f));
+
+    REQUIRE(d.get_min().x == Approx(2.0f));
+		REQUIRE(d.get_min().y == Approx(2.0f));
+		REQUIRE(d.get_max().x == Approx(3.0f));
+		REQUIRE(d.get_max().y == Approx(3.0f));
+    REQUIRE(d.get_color().g_ == Approx(1.0f));
 	}
 
 	SECTION("test_methods") {
-		REQUIRE(a.circumference() == Approx(0.0f));
-		REQUIRE(b.circumference() == Approx(4.0f));
-	}
-  
-}*/
+		REQUIRE(a.circumference() == Approx(4.0f));
+		REQUIRE(c.circumference() == Approx(4.0f));
+	} 
+}
