@@ -5,44 +5,42 @@
 
 struct Color{
 
-    float _r;
-    float _g;
-    float _b;
+    float r_;
+    float g_;
+    float b_;
 
     Color(float value){
-        if(value<0&&value>1){
-            std::cout<<"The value is not a valid inut! black was constructed instead! ";
-            _r = 0.0f;
-            _g = 0.0f;
-            _b = 0.0f;
+        if(value<0.0f||value>1.0f){
+            std::cout<<" The value is not a valid inut! black was constructed instead! ";
+            r_ = 0.0f;
+            g_ = 0.0f;
+            b_ = 0.0f;
         }
 
         else
         {
-            _r = value;
-            _g = value;
-            _b = value;
+            r_ = value;
+            g_ = value;
+            b_ = value;
         }
     };
 
     Color(float r,float g,float b){
-        
-        if(r>1&&r<0&&g>1&&g<0&&b<0&&b>1){
 
-            std::cout<<"The values are not a valid inut! black was constructed instead! ";
-            _r = 0.0f;
-            _g = 0.0f;
-            _b = 0.0f;
+        if(r>1.0f||r<0.0f||g>1.0f||g<0.0f||b<0.0f||b>1.0f){
+
+            std::cout<<" The values are not a valid inut! black was constructed instead! ";
+            r_ = 0.0f;
+            g_ = 0.0f;
+            b_ = 0.0f;
         }
         else
         {
-            _r = r;
-            _g = g;
-            _b = b;
+            r_ = r;
+            g_ = g;
+            b_ = b;
         }
 
     }
-
-    float r,g,b;
 };
 #endif
