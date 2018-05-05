@@ -44,7 +44,7 @@ Vec2& Vec2::operator *=(float s){
 
 Vec2& Vec2::operator /=(float s){
     if(s==0.0f){
-        std::cout<<"Division through zero!! Nothing calculated! ";
+        std::cout<<"Division through zero!! Nothing calculated!\n";
         return *this;
     }
     else{
@@ -81,7 +81,7 @@ Vec2 operator*(Vec2 const& u,float s){
 Vec2 operator/(Vec2 const& u, float s){
     Vec2 calc = u;
     if(s==0.0f){
-        std::cout<<"Division through zero!! Nothing calculated!";
+        std::cout<<"Division through zero!! Nothing calculated!\n";
         return calc;
     }
     else{

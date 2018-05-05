@@ -11,7 +11,7 @@ struct Color{
 
     Color(float value){
         if(value<0.0f||value>1.0f){
-            std::cout<<" The value is not a valid inut! black was constructed instead! ";
+            std::cout<<"The value is not a valid inut! black was constructed instead!\n";
             r_ = 0.0f;
             g_ = 0.0f;
             b_ = 0.0f;
@@ -29,7 +29,7 @@ struct Color{
 
         if(r>1.0f||r<0.0f||g>1.0f||g<0.0f||b<0.0f||b>1.0f){
 
-            std::cout<<" The values are not a valid inut! black was constructed instead! ";
+            std::cout<<"The values are not a valid inut! black was constructed instead!\n";
             r_ = 0.0f;
             g_ = 0.0f;
             b_ = 0.0f;

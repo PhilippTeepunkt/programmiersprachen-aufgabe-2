@@ -6,8 +6,8 @@
 #include <math.h>
 
 Mat2::Mat2():
-    s1{Vec2{}},
-    s2{Vec2{}}
+    s1{Vec2{1.0f,0.0f}},
+    s2{Vec2{0.0f,1.0f}}
 {}
 
 Mat2::Mat2(Vec2 const& v1,Vec2 const& v2):
@@ -98,7 +98,7 @@ Mat2 inverse(Mat2 const& m){
     }
     else 
     {
-        std::cout<<" matrix doesn't have inverse , det==0";
+        std::cout<<"Matrix doesn't have inverse , det==0 \n";
         return m;
     }
     
