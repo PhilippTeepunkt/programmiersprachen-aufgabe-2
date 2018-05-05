@@ -65,4 +65,13 @@ float Rectangle::circumference()const
     return 2 * get_length().y + 2 * get_width().x;
 }
 
+void Rectangle::draw(Window const& w)
+{
+    Color c = get_color();
+    w.draw_line(get_min().x,get_min().y,get_min().x,get_max().y,c.r_,c.g_,c.b_);
+    w.draw_line(get_min().x,get_max().y,get_max().x,get_max().y,c.r_,c.g_,c.b_);
+    w.draw_line(get_max().x,get_max().y,get_max().x,get_min().y,c.r_,c.g_,c.b_);
+    w.draw_line(get_max().x,get_min().y,get_min().x,get_min().y,c.r_,c.g_,c.b_);
+}
+
 #endif
