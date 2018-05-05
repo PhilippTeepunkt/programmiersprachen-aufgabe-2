@@ -3,10 +3,20 @@
 #include <utility>
 #include <cmath>
 
+#include "vec2.hpp"
+#include "mat2.hpp"
+#include "circle.hpp"
+#include "rectangle.hpp"
+
 
 int main(int argc, char* argv[])
 {
   Window win{std::make_pair(800,800)};
+
+    Circle c1{100.0f,Vec2{400.0f,400.0f},Color{1.0f,0.0f,0.0f}};
+    Circle c2{200.0f,Vec2{400.0f,400.0f},Color{0.0f,0.0f,1.0f}};
+    //Rectangle r1{Color{1.0f,0.0f,0.0f}};
+    //Rectangle r2{Color{0.0f,0.0f,1.0f}};  
 
   while (!win.should_close()) {
     if (win.get_key(GLFW_KEY_ESCAPE) == GLFW_PRESS) {
@@ -25,6 +35,12 @@ int main(int argc, char* argv[])
 
     float x3{400 + 380 * std::sin(t-10.f)};
     float y3{400 + 380 * std::cos(t-10.f)};
+
+    //user defined
+    c1.draw(win);
+    c2.draw(win);
+    //r1.draw(win);
+    //r2.draw(win);
 
     win.draw_point(x1, y1,
         1.0f, 0.0f, 0.0f);

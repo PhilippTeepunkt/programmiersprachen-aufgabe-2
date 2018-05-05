@@ -3,6 +3,7 @@
 
 #include "color.hpp"
 #include "vec2.hpp"
+#include "window.hpp"
 
 class Circle{
     
@@ -22,6 +23,7 @@ class Circle{
         void set_color();
 
         float circumference() const;
+        void draw(Window const& w) const;
         
     private:
 

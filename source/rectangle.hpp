@@ -3,6 +3,7 @@
 
 #include "vec2.hpp"
 #include "color.hpp"
+#include "window.hpp"
 
 class Rectangle{
     
@@ -21,6 +22,7 @@ class Rectangle{
         Vec2 get_width() const;
 
         float circumference() const;
+        void draw(Window const& w);
         
     private:
     

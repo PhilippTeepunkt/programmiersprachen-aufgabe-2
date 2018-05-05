@@ -4,6 +4,7 @@
 
 #include "vec2.hpp"
 #include "color.hpp"
+#include "window.hpp"
 #include <math.h>
 
 Circle::Circle():
@@ -61,6 +62,21 @@ Color Circle::get_color()const
 float Circle::circumference()const
 {
     return 2 * (float)M_PI * radius_;
+}
+
+void Circle::draw(Window const& w)const
+{
+    Vec2 start{};
+    Vec2 end{};
+    Color c{0.0f};
+    c = get_color();
+    
+    for(int i =0; i<=360; i++)
+    {
+        start = {(float)sin((2*M_PI*i)/360)*get_radius()+center_.x,(float)cos((2*M_PI*i)/360)*get_radius()+center_.y};
+        end = {(float)sin(((i+1)*2*M_PI)/360)*get_radius()+center_.x,(float)cos(((i+1)*2*M_PI)/360)*get_radius()+center_.y};
+        w.draw_line(start.x,start.y,end.x,end.y,c.r_,c.g_,c.b_);
+    }
 }
 
 #endif
