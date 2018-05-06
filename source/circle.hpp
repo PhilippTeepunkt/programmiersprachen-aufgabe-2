@@ -24,6 +24,8 @@ class Circle{
 
         float circumference() const;
         void draw(Window const& w) const;
+        void draw(Window const& w, Color const& c);
+        void draw(Window const& w,float r, float g, float b);
         
     private:
 

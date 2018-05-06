@@ -15,7 +15,7 @@ int main(int argc, char* argv[])
 
     Circle c1{100.0f,Vec2{400.0f,400.0f},Color{1.0f,0.0f,0.0f}};
     Circle c2{200.0f,Vec2{400.0f,400.0f},Color{0.0f,0.0f,1.0f}};
-    Rectangle r1{Vec2{150.0f,50.0f},Vec2{350.0f,150.0f},Color{1.0f,0.0f,0.0f}};
+    Rectangle r1{Vec2{150.0f,50.0f},Vec2{350.0f,150.0f},Color{0.0f,1.0f,0.0f}};
     Rectangle r2{Vec2{50.0f,200.0f},Vec2{100.0f,380.0f},Color{0.0f,1.0f,0.0f}};  
 
   while (!win.should_close()) {
@@ -38,9 +38,9 @@ int main(int argc, char* argv[])
 
     //user defined
     c1.draw(win);
-    c2.draw(win);
+    c2.draw(win,0.0f,0.0f,1.0f);
     r1.draw(win);
-    r2.draw(win);
+    r2.draw(win,1.0f,1.0f,0.0f);
 
     win.draw_point(x1, y1,
         1.0f, 0.0f, 0.0f);

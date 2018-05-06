@@ -23,6 +23,8 @@ class Rectangle{
 
         float circumference() const;
         void draw(Window const& w);
+        void draw(Window const& w, Color const& c);
+        void draw(Window const& w,float r, float g, float b);
         
     private:
     

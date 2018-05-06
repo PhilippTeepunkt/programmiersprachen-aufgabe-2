@@ -74,4 +74,21 @@ void Rectangle::draw(Window const& w)
     w.draw_line(get_max().x,get_min().y,get_min().x,get_min().y,c.r_,c.g_,c.b_);
 }
 
+void Rectangle::draw(Window const& w, Color const& c )
+{
+    w.draw_line(get_min().x,get_min().y,get_min().x,get_max().y,c.r_,c.g_,c.b_);
+    w.draw_line(get_min().x,get_max().y,get_max().x,get_max().y,c.r_,c.g_,c.b_);
+    w.draw_line(get_max().x,get_max().y,get_max().x,get_min().y,c.r_,c.g_,c.b_);
+    w.draw_line(get_max().x,get_min().y,get_min().x,get_min().y,c.r_,c.g_,c.b_);
+}
+
+void Rectangle::draw(Window const& w, float r, float g, float b)
+{
+    Color c{r,g,b};
+    w.draw_line(get_min().x,get_min().y,get_min().x,get_max().y,c.r_,c.g_,c.b_);
+    w.draw_line(get_min().x,get_max().y,get_max().x,get_max().y,c.r_,c.g_,c.b_);
+    w.draw_line(get_max().x,get_max().y,get_max().x,get_min().y,c.r_,c.g_,c.b_);
+    w.draw_line(get_max().x,get_min().y,get_min().x,get_min().y,c.r_,c.g_,c.b_);
+}
+
 #endif

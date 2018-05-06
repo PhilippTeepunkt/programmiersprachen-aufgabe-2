@@ -79,4 +79,31 @@ void Circle::draw(Window const& w)const
     }
 }
 
+void Circle::draw(Window const& w, Color const& c)
+{
+    Vec2 start{};
+    Vec2 end{};
+    
+    for(int i =0; i<=360; i++)
+    {
+        start = {(float)sin((2*M_PI*i)/360)*get_radius()+center_.x,(float)cos((2*M_PI*i)/360)*get_radius()+center_.y};
+        end = {(float)sin(((i+1)*2*M_PI)/360)*get_radius()+center_.x,(float)cos(((i+1)*2*M_PI)/360)*get_radius()+center_.y};
+        w.draw_line(start.x,start.y,end.x,end.y,c.r_,c.g_,c.b_);
+    }
+}
+
+void Circle::draw(Window const& w, float r, float g, float b)
+{
+    Vec2 start{};
+    Vec2 end{};
+    Color c{r,g,b};
+    
+    for(int i =0; i<=360; i++)
+    {
+        start = {(float)sin((2*M_PI*i)/360)*get_radius()+center_.x,(float)cos((2*M_PI*i)/360)*get_radius()+center_.y};
+        end = {(float)sin(((i+1)*2*M_PI)/360)*get_radius()+center_.x,(float)cos(((i+1)*2*M_PI)/360)*get_radius()+center_.y};
+        w.draw_line(start.x,start.y,end.x,end.y,c.r_,c.g_,c.b_);
+    }
+}
+
 #endif
