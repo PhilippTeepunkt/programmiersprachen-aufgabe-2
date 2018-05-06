@@ -22,9 +22,11 @@ class Rectangle{
         Vec2 get_width() const;
 
         float circumference() const;
-        void draw(Window const& w);
-        void draw(Window const& w, Color const& c);
-        void draw(Window const& w,float r, float g, float b);
+        void draw(Window const& w) const;
+        void draw(Window const& w, Color const& c) const;
+        void draw(Window const& w,float r, float g, float b) const;
+
+        bool is_inside(Vec2 const& v) const;
         
     private:
     

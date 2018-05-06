@@ -367,4 +367,12 @@ TEST_CASE("test_custom","[custom]")
     REQUIRE(c.is_inside(Vec2{2.0f,7.0f}));
     REQUIRE(!c.is_inside(Vec2{2.0f,9.0f}));
   }
+
+  SECTION("rect_isInside")
+  {
+    Rectangle r{Vec2{2.0f,2.0f},Vec2{5.0f,5.0f}};
+    REQUIRE(r.is_inside(Vec2{3.0f,4.0f}));
+    REQUIRE(r.is_inside(Vec2{3.0f,5.0f}));
+    REQUIRE(!r.is_inside(Vec2{3.0f,7.0f}));
+  }
 }
