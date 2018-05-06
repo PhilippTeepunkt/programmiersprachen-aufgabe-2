@@ -7,6 +7,7 @@
 #include "mat2.hpp"
 #include "circle.hpp"
 #include "rectangle.hpp"
+#include <vector>
 
 
 int main(int argc, char* argv[])
@@ -14,7 +15,7 @@ int main(int argc, char* argv[])
   Window win{std::make_pair(800,800)};
 
     Circle c1{100.0f,Vec2{400.0f,400.0f},Color{1.0f,0.0f,0.0f}};
-    Circle c2{200.0f,Vec2{400.0f,400.0f},Color{0.0f,0.0f,1.0f}};
+    Circle c2{200.0f,Vec2{400.0f,400.0f},Color{0.0f,1.0f,0.0f}};
     Rectangle r1{Vec2{150.0f,50.0f},Vec2{350.0f,150.0f},Color{0.0f,1.0f,0.0f}};
     Rectangle r2{Vec2{50.0f,200.0f},Vec2{100.0f,380.0f},Color{0.0f,1.0f,0.0f}};  
 
@@ -36,11 +37,34 @@ int main(int argc, char* argv[])
     float x3{400 + 380 * std::sin(t-10.f)};
     float y3{400 + 380 * std::cos(t-10.f)};
 
-    //user defined
-    c1.draw(win);
-    c2.draw(win,0.0f,0.0f,1.0f);
-    r1.draw(win);
-    r2.draw(win,1.0f,1.0f,0.0f);
+    std::vector<Circle> vc;
+    std::vector<Rectangle> vr;
+
+    //user defined    
+    vc.push_back(c1);
+    vc.push_back(c2);
+    vr.push_back(r1);
+    vr.push_back(r2);
+    Color highlightColor{0.0f,0.0f,1.0f};
+    for(Circle const& i : vc)
+    {
+      if(i.is_inside(Vec2{(float)std::get<0>(win.mouse_position()),(float)std::get<1>(win.mouse_position())})){
+        i.draw(win,highlightColor);
+      }
+      else {
+        i.draw(win);
+      }
+    }
+
+    for(Rectangle const& i : vr)
+    {
+      if(i.is_inside(Vec2{(float)std::get<0>(win.mouse_position()),(float)std::get<1>(win.mouse_position())})){
+        i.draw(win,highlightColor);
+      }
+      else{
+        i.draw(win);
+      }
+    }
 
     win.draw_point(x1, y1,
         1.0f, 0.0f, 0.0f);
