@@ -79,7 +79,7 @@ void Circle::draw(Window const& w)const
     }
 }
 
-void Circle::draw(Window const& w, Color const& c)
+void Circle::draw(Window const& w, Color const& c)const
 {
     Vec2 start{};
     Vec2 end{};
@@ -92,7 +92,7 @@ void Circle::draw(Window const& w, Color const& c)
     }
 }
 
-void Circle::draw(Window const& w, float r, float g, float b)
+void Circle::draw(Window const& w, float r, float g, float b)const
 {
     Vec2 start{};
     Vec2 end{};
@@ -104,6 +104,14 @@ void Circle::draw(Window const& w, float r, float g, float b)
         end = {(float)sin(((i+1)*2*M_PI)/360)*get_radius()+center_.x,(float)cos(((i+1)*2*M_PI)/360)*get_radius()+center_.y};
         w.draw_line(start.x,start.y,end.x,end.y,c.r_,c.g_,c.b_);
     }
+}
+
+bool Circle::is_inside(Vec2 const& vec)const
+{
+    if(length(vec-get_center())<=get_radius()){
+        return true;
+    }
+    return false;
 }
 
 #endif

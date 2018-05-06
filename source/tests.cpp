@@ -351,3 +351,20 @@ TEST_CASE("test_rectangle_general","[rectangle]")
 		REQUIRE(c.circumference() == Approx(4.0f));
 	} 
 }
+
+TEST_CASE("test_custom","[custom]")
+{
+  SECTION("test_vec_length")
+  {
+    REQUIRE(length(Vec2{3.0f,4.0f})==5.0f);
+    REQUIRE(length(Vec2{-3.0,-4.0f})==5.0f);
+  }
+
+  SECTION("circle_isInside")
+  {
+    Circle c{5.0f,Vec2{2.0f,2.0f}};
+    REQUIRE(c.is_inside(Vec2{3.0f,4.0f}));
+    REQUIRE(c.is_inside(Vec2{2.0f,7.0f}));
+    REQUIRE(!c.is_inside(Vec2{2.0f,9.0f}));
+  }
+}

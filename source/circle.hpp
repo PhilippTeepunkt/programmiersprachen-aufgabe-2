@@ -5,6 +5,8 @@
 #include "vec2.hpp"
 #include "window.hpp"
 
+#include <vector>
+
 class Circle{
     
     public:
@@ -24,8 +26,10 @@ class Circle{
 
         float circumference() const;
         void draw(Window const& w) const;
-        void draw(Window const& w, Color const& c);
-        void draw(Window const& w,float r, float g, float b);
+        void draw(Window const& w, Color const& c) const;
+        void draw(Window const& w,float r, float g, float b) const;
+
+        bool is_inside(Vec2 const& v)const;
         
     private:
 
