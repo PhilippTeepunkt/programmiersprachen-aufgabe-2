@@ -5,6 +5,8 @@
 #include "mat2.hpp"
 #include <iostream>
 
+#include<math.h>
+
 //Aufgabe 2.2
 
 Vec2::Vec2():
@@ -97,6 +99,10 @@ Vec2 operator*(float s,Vec2 const& v){
     calc.x = s * v.x;
     calc.y = s * v.y;
     return calc;
+}
+
+float length(Vec2 const& v){
+    return sqrt(pow(v.x,2.0)+pow(v.y,2.0));
 }
 
 #endif
