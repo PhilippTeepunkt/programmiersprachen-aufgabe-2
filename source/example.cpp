@@ -100,7 +100,7 @@ int main(int argc, char* argv[])
     win.draw_line(m.first, win.window_size().second - 10, m.first, win.window_size().second, 0.0, 0.0, 0.0);
 
     std::string text = "mouse position: (" + std::to_string(m.first) + ", " + std::to_string(m.second) + ")";
-    std::string timeText = "time: "+std::to_string((int)time/3600)+"h "+std::to_string((int)time/60)+"min  "+std::to_string((int)time)+"s ";
+    std::string timeText = "time: "+std::to_string((int)time/3600)+"h "+std::to_string((int)time/60)+"min  "+std::to_string(((int)time)%60)+"s ";
     win.draw_text(10, 5, 35.0f, text);
     win.draw_text(10, 35, 35.0f, timeText);
 

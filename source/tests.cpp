@@ -18,13 +18,13 @@ TEST_CASE ("tests_vec2","[vec2]")
   {
     Vec2 vec{3.0f,2.0f};
 
-    REQUIRE(vec.x == 3.0f);
-    REQUIRE(vec.y == 2.0f);
+    REQUIRE(vec.x == Approx(3.0f));
+    REQUIRE(vec.y == Approx(2.0f));
 
 
     Vec2 vecCustom;
-    REQUIRE(vecCustom.x == 0.0f);
-    REQUIRE(vecCustom.y == 0.0f);
+    REQUIRE(vecCustom.x == Approx(0.0f));
+    REQUIRE(vecCustom.y == Approx(0.0f));
   }
 }
 
@@ -35,8 +35,8 @@ TEST_CASE ("test_vec2_operator","[vec2]")
     Vec2 vec{3.0f,2.0f};
     Vec2 vecT{5.0f,3.0f};
     vec+=vecT;
-    REQUIRE(vec.x==8.0f);
-    REQUIRE(vec.y==5.0f);
+    REQUIRE(vec.x==Approx(8.0f));
+    REQUIRE(vec.y==Approx(5.0f));
   }
 
   SECTION("test_-=operator")
@@ -356,8 +356,8 @@ TEST_CASE("test_custom","[custom]")
 {
   SECTION("test_vec_length")
   {
-    REQUIRE(length(Vec2{3.0f,4.0f})==5.0f);
-    REQUIRE(length(Vec2{-3.0,-4.0f})==5.0f);
+    REQUIRE(length(Vec2{3.0f,4.0f})==Approx(5.0f));
+    REQUIRE(length(Vec2{-3.0,-4.0f})==Approx(5.0f));
   }
 
   SECTION("circle_isInside")
